@@ -1,0 +1,170 @@
+
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>CT404</title>
+    <script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
+    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'/>
+</head>
+<body>
+<h1>Space, the Final Frontier</h1>
+
+<x3d width='800px' height='600px'>
+    <scene>
+	<Group>
+		<!--- PLANETS --->
+		<transform DEF='sun'>
+		<shape>
+			<appearance>
+				<!--imageTexture url =' "http://xnameetingpoint.weebly.com/uploads/7/4/1/2/7412327/2399293_orig.png"/-->
+				<Material diffuseColor="yellow"/>
+			</appearance>
+			<sphere radius='0.7' />
+		</shape>
+		</transform>
+			
+		<transform DEF='mercury'>
+			<shape>
+			<appearance>
+				<material diffuseColor='orange'></material>
+			</appearance>
+			<sphere radius='0.01' />
+		</shape>
+		</transform>
+		
+		<transform DEF="venus">
+        <shape>
+            <appearance>
+                <material diffuseColor='brown'></material>
+            </appearance>
+            <sphere radius ='0.03'/>
+        </shape>
+        </transform>
+		
+		<transform DEF='earth'>
+		<shape>
+			<appearance>
+				<!--ImageTexture url="http://x3dgraphics.com/examples/X3dForWebAuthors/Chapter01-TechnicalOverview/earth-topo.png"/-->
+				<material diffuseColor='blue'/>
+			</appearance>
+			<sphere radius='0.04'/>
+		</shape>
+		</transform>
+		
+		<transform DEF='mars'>
+		<shape>
+			<appearance>
+				<material diffuseColor='red'/>
+			</appearance>
+			<sphere radius='0.02'/>
+		</shape>
+		</transform>
+		
+        <transform DEF="jupiter">
+        <shape>
+            <appearance>
+                <material diffuseColor='orange'></material>
+            </appearance>
+            <sphere radius= '0.1'></sphere>
+        </shape>
+        </transform>
+		
+		<transform DEF='saturn'>
+		<shape>
+			<appearance>
+				<material diffuseColor='green'/>
+			</appearance>
+			<sphere radius='0.08'/>
+		</shape>
+		</transform>
+		
+		<transform DEF='uranus'>
+		<shape>
+			<appearance>
+				<material diffuseColor='0 255 255' />
+			</appearance>
+			<sphere radius='0.06'/>
+		</shape>
+		</transform>
+		
+		<transform DEF='neptune'>
+		<shape>
+			<appearance>
+				<material diffuseColor='red'/>
+			</appearance>
+			<sphere radius='0.07'/>
+		</shape>
+		</transform>
+		
+		<!-- Lights next to the sun to --->
+		<PointLight DEF='light' location='5 0 0' intensity='3' radius='40'/>
+		<PointLight DEF='light2' location='-5 0 0' intensity='3' radius='40'/>
+		<PointLight DEF='light3' location='0 0 5' intensity='3' radius='40'/>
+		<PointLight DEF='light4' location='0 0 -5' intensity='3' radius='40'/>
+
+        <timeSensor DEF="time" cycleInterval="8" loop="true"></timeSensor>
+		<timeSensor DEF='clock' cycleInterval='8' loop='true'></timeSensor>
+		
+		<orientationInterpolator DEF='spin' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0  0 1 0 1.57079  0 1 0 3.14159  0 1 0 4.71239  0 1 0 6.28317'></orientationInterpolator>
+		
+        <PositionInterpolator DEF="move1" key="0 0.25 0.5 0.75 1" keyValue="8 0 0, 0 0 -8, -10 0 0, 0 0 8, 8 0 0"></PositionInterpolator>
+		<PositionInterpolator DEF="move2" key="0 0.0625 0.125 0.1875 0.25 0.315 0.375 0.4375 0.5 0.5625 0.625 0.6875 0.75 0.8125 0.875 0.9375 1" keyValue="0 0 1.4, 0.4 0 1.25, 0.9 0 0.75, 1.25 0 0.25, 1.4 0 0, 1.25 0 -0.25, 0.9 0 -0.75, 0.4 0 -1.25, 0 0 -1.4, -0.4 0 -1.25, -0.9 0 -0.75, -1.25 0 -0.25, -1.4 0 0, -1.25 0 0.25, -0.9 0 0.75, -0.4 0 1.25, 0 0 1.4"></PositionInterpolator>
+		<PositionInterpolator DEF="moveEarth" key="0 0.0625 0.125 0.1875 0.25 0.315 0.375 0.4375 0.5 0.5625 0.625 0.6875 0.75 0.8125 0.875 0.9375 1" keyValue='-1.45 0 -0.5, -1.1 0 -1, -0.6 0 -1.5, 0 0 -1.6,0.6 0 -1.5, 1.1 0 -1, 1.45 0 -0.5, 1.6 0 0, 1.45 0 0.5, 1.1 0 1, 0.6 0 1.5, 0 0 1.6, -0.6 0 1.5, -1.1 0 1, -1.45 0 0.5, -1.6 0 0, -1.45 0 -0.5'/>
+		<PositionInterpolator DEF="moveMercury" key="0 0.0625 0.125 0.1875 0.25 0.315 0.375 0.4375 0.5 0.5625 0.625 0.6875 0.75 0.8125 0.875 0.9375 1" keyValue='0.2 0 1.05, 0.7 0 0.55, 1.05 0 0.05, 1.2 0 0, 1.05 0 -0.05, 0.7 0 -0.55, 0.2 0 -1.05, 0 0 -1.2, -0.2 0 -1.05, -0.7 0 -0.55, -1.05 0 -0.05,-1.2 0 0, -1.05 0 0.05, -0.7 0 0.55, -0.2 0 1.05, 0 0 1.2, 0.2 0 1.05  '/>
+		<PositionInterpolator DEF="moveMars" key="0 0.0625 0.125 0.1875 0.25 0.315 0.375 0.4375 0.5 0.5625 0.625 0.6875 0.75 0.8125 0.875 0.9375 1" keyValue='0 0 2, 1 0 1.9, 1.5 0 1.4, 1.85 0 0.9, 2 0 0, 1.85 0 -0.9, 1.5 0 -1.4, 0.9 0 -1.9, 0 0 -2, -0.9 0 -1.9, -1.5 0 -1.4, -1.82 0 -0.9, -2 0 0, -1.85 0 0.9, -1.5 0 1.4, -0.9 0 1.9, 0 0 2'/>
+		<PositionInterpolator DEF="moveJupiter" key="0 0.0625 0.125 0.1875 0.25 0.315 0.375 0.4375 0.5 0.5625 0.625 0.6875 0.75 0.8125 0.875 0.9375 1" keyValue='0 0 4, 1.6 0 3.8, 3 0 2.8, 3.6 0 1.4, 4 0 0,3.6 0 -1.4, 3 0 -2.8, 1.6 0 -3.8, 0 0 -4, -1.6 0 -3.8, -3 0 -2.8, -3.6 0 -1.4, -4 0 0, -3.6 0 1.4, -3 0 2.8, -1.6 0 3.8, 0 0 4'/>
+		<PositionInterpolator DEF="moveSaturn" key="0 0.0625 0.125 0.1875 0.25 0.315 0.375 0.4375 0.5 0.5625 0.625 0.6875 0.75 0.8125 0.875 0.9375 1" keyValue='6 0 0,5.6 0 -3.4,5 0 -4.8,3.6 0 -5.8, 0 0 -6,-3.6 0 -5.8, -5 0 -4.8, -5.6 0 -3.4, -6 0 0, -5.6 0 3.4, -5 0 4.8, -3.6 0 5.8, 0 0 6, 3.6 0 5.8, 5 0 4.8, 5.6 0 3.4, 6 0 0'/>
+		<PositionInterpolator DEF="moveUranus" key="0 0.0625 0.125 0.1875 0.25 0.315 0.375 0.4375 0.5 0.5625 0.625 0.6875 0.75 0.8125 0.875 0.9375 1" keyValue='-8.6 0 6.4, -8 0 7.8, -6.6 0 8.8, 0 0 9, 6.6 0 8.8, 8 0 7.8, 8.6 0 6.4, 9 0 0, 8.6 0 -6.4,8 0 -7.8, 6.6 0 -8.8, 0 0 -9, -6.6 0 -8.8, -8 0 -7.8, -8.6 0 -6.4, -9 0 0, -8.6 0 6.4'/>
+		<PositionInterpolator DEF="moveNeptune" key="0 0.0625 0.125 0.1875 0.25 0.315 0.375 0.4375 0.5 0.5625 0.625 0.6875 0.75 0.8125 0.875 0.9375 1" keyValue='-11 0 0, -10.6 0 8.4, -10 0 9.8, -8.6 0 10.8, 0 0 11, 8.6 0 10.8, 10 0 9.8, 10.6 0 8.4, 11 0 0, 10.6 0 -8.4, 10 0 -9.8, 8.6 0 -10.8, 0 0 -11, -8.6 0 -10.8,-10 0 -9.8, -10.6 0 -8.4, -11 0 0'/>
+		
+		</Group>
+		
+		<Route fromNode="time" fromField ="fraction_changed" toNode="spin" toField="set_fraction"></Route>
+        <Route fromNode="spin" fromField ="value_changed" toNode="sun" toField="set_rotation"></Route> 
+		
+		<Route fromNode="time" fromField ="fraction_changed" toNode="moveMercury" toField="set_fraction"></Route>
+        <Route fromNode="moveMercury" fromField ="value_changed" toNode="mercury" toField="translation"></Route>
+		<ROUTE fromNode='clock' fromField='fraction_changed' toNode='spin' toField='set_fraction'></ROUTE>
+		<ROUTE fromNode='spin' fromField='value_changed' toNode='mercury' toField='set_rotation'></ROUTE>
+		
+		<Route fromNode="time" fromField ="fraction_changed" toNode="move2" toField="set_fraction"></Route>
+        <Route fromNode="move2" fromField ="value_changed" toNode="venus" toField="translation"></Route>
+		<ROUTE fromNode='clock' fromField='fraction_changed' toNode='spin' toField='set_fraction'></ROUTE>
+		<ROUTE fromNode='spin' fromField='value_changed' toNode='venus' toField='set_rotation'></ROUTE>
+		
+		<Route fromNode="time" fromField ="fraction_changed" toNode="moveEarth" toField="set_fraction"></Route>
+        <Route fromNode="moveEarth" fromField ="value_changed" toNode="earth" toField="translation"></Route>
+		<ROUTE fromNode='clock' fromField='fraction_changed' toNode='spin' toField='set_fraction'></ROUTE>
+		<ROUTE fromNode='spin' fromField='value_changed' toNode='earth' toField='set_rotation'></ROUTE>
+		
+		<Route fromNode="time" fromField ="fraction_changed" toNode="moveMars" toField="set_fraction"></Route>
+        <Route fromNode="moveMars" fromField ="value_changed" toNode="mars" toField="translation"></Route>
+		<ROUTE fromNode='clock' fromField='fraction_changed' toNode='spin' toField='set_fraction'></ROUTE>
+		<ROUTE fromNode='spin' fromField='value_changed' toNode='mars' toField='set_rotation'></ROUTE>
+		
+        <Route fromNode="time" fromField ="fraction_changed" toNode="moveJupiter" toField="set_fraction"></Route>
+        <Route fromNode="moveJupiter" fromField ="value_changed" toNode="jupiter" toField="translation"></Route>
+		<ROUTE fromNode='clock' fromField='fraction_changed' toNode='spin' toField='set_fraction'></ROUTE>
+		<ROUTE fromNode='spin' fromField='value_changed' toNode='jupiter' toField='set_rotation'></ROUTE>
+		
+		<Route fromNode="time" fromField ="fraction_changed" toNode="moveSaturn" toField="set_fraction"></Route>
+        <Route fromNode="moveSaturn" fromField ="value_changed" toNode="saturn" toField="translation"></Route>
+		<ROUTE fromNode='clock' fromField='fraction_changed' toNode='spin' toField='set_fraction'></ROUTE>
+		<ROUTE fromNode='spin' fromField='value_changed' toNode='saturn' toField='set_rotation'></ROUTE>
+		
+		<Route fromNode="time" fromField ="fraction_changed" toNode="moveUranus" toField="set_fraction"></Route>
+        <Route fromNode="moveUranus" fromField ="value_changed" toNode="uranus" toField="translation"></Route>
+		<ROUTE fromNode='clock' fromField='fraction_changed' toNode='spin' toField='set_fraction'></ROUTE>
+		<ROUTE fromNode='spin' fromField='value_changed' toNode='uranus' toField='set_rotation'></ROUTE>
+		
+		<Route fromNode="time" fromField ="fraction_changed" toNode="moveNeptune" toField="set_fraction"></Route>
+        <Route fromNode="moveNeptune" fromField ="value_changed" toNode="neptune" toField="translation"></Route>
+		<ROUTE fromNode='clock' fromField='fraction_changed' toNode='spin' toField='set_fraction'></ROUTE>
+		<ROUTE fromNode='spin' fromField='value_changed' toNode='neptune' toField='set_rotation'></ROUTE>
+		
+		<Background color='black'/>
+
+    </scene>
+</x3d>
+</body>
+</html>
